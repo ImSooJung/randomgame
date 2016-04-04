@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mName = (EditText) findViewById(R.id.name);
         mButton = (Button) findViewById(R.id.btn_show_me_the_chicken);
-        mButton.setOnClickListener(this);//버튼 클
+        mButton.setOnClickListener(this);//버튼 클릭
     }
 
     @Override
