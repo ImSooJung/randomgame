@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        mName.setText("");
+        mName.setText(null);
     }
 
     /**
@@ -49,8 +49,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override//어노테이션?
     public void onClick(View v) {
-        Toast.makeText(this, "룰루랄라 안드로이드", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
-        Intent intent = new Intent(this, ResultActivity.class);
-        startActivity(intent);
+
+
+        String name = mName.getText().toString();//EditText에서 입력받은 값을 toString으로 저장한다
+
+        /*if(name==null)
+        {
+            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
+            //name에 입력을 안하면 null이 리턴되서 null point exception 발생
+        }
+        else {
+            Toast.makeText(this, "룰루랄라" + name + "의 안드로이드!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
+            Intent intent = new Intent(this, ResultActivity.class);
+            startActivity(intent);
+        }*/
+        try{
+            Toast.makeText(this, "룰루랄라" + name + "의 안드로이드!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
+            Intent intent = new Intent(this, ResultActivity.class);
+            startActivity(intent);
+        }catch(NullPointerException e){
+            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
+        }catch(Exception e){
+            Toast.makeText(this, "예외 상황이 발생했습니다!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
+
+        }
     }
 }
