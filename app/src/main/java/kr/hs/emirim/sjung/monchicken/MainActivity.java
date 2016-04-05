@@ -55,22 +55,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /*if(name==null)
         {
-            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
+            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
             //name에 입력을 안하면 null이 리턴되서 null point exception 발생
         }
         else {
-            Toast.makeText(this, "룰루랄라" + name + "의 안드로이드!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
+            Toast.makeText(this, "룰루랄라" + name + "의 안드로이드!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, ResultActivity.class);
             startActivity(intent);
         }*/
         try{
             Toast.makeText(this, "룰루랄라" + name + "의 안드로이드!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
             Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra("name",name);
+            intent.putExtra("age",18);
+
             startActivity(intent);
         }catch(NullPointerException e){
-            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
+            Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
         }catch(Exception e){
-            Toast.makeText(this, "예외 상황이 발생했습니다!", Toast.LENGTH_LONG).show();//현재액티비티로넘어감(duration:기간-띄워주는....상수형으로적는다(대문자))
+            Toast.makeText(this, "예외 상황이 발생했습니다!", Toast.LENGTH_LONG).show();
 
         }
     }
