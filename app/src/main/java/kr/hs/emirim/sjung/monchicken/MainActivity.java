@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
         }catch(Exception e){
             Toast.makeText(this, "예외 상황이 발생했습니다!", Toast.LENGTH_LONG).show();
-
         }
     }
 }
