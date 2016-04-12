@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mName = (EditText) findViewById(R.id.name);
         mButton = (Button) findViewById(R.id.btn_show_me_the_chicken);
-        mButton.setOnClickListener(this);//버튼 클
+        mButton.setOnClickListener(this);//this : 이벤트 핸들러 클래스
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, ResultActivity.class);
             intent.putExtra("name",name);
             intent.putExtra("age",18);
-
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);//들어올때 애니메이션,나갈때 애니메이션
         }catch(NullPointerException e){
             Toast.makeText(this, "이름을 입력해 주세요!", Toast.LENGTH_LONG).show();
         }catch(Exception e){
