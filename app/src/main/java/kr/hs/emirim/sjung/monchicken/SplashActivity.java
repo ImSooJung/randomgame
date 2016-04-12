@@ -14,12 +14,15 @@ public class SplashActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash);
 
-        Handler handler=new Handler();
-        handler.postDelayed(new Runnable() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {//Runnable로 이루어진 객체의 참조값(이름 없는 클래스 :  쓰레드 클래스)-> 객체 생성
             @Override
-            public void run(){
-                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            public void run() {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0,R.anim.zoom_exit);//SplashActivity로 빠져나갈때 zoom_exit실행
                 finish();
             }
-    },3
+        }, 3000);
+    }
+}
